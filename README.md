@@ -11,4 +11,7 @@ docker 起動
 docker compose up -d 
 ```
 
-http://localhost:3000/にアクセス
+localhostをブラウザで開く
+http://localhost:3000/
+
+
