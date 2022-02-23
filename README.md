@@ -8,7 +8,7 @@ git clone https://github.com/pon0204/react-counter.git
 
 docker 起動
 ```
-docker compose up -d 
+docker compose up
 ```
 
 localhostをブラウザで開く
