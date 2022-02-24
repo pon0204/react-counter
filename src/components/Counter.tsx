@@ -1,6 +1,11 @@
-import { useState } from 'react'
+import { useState, VFC } from 'react'
 
-export const Counter = () => {
+type Props = {
+  id: number
+  deleteCounter(id: number): void
+}
+
+export const Counter: VFC<Props> = ({ id, deleteCounter }) => {
   const [count, setCount] = useState(0)
 
   const incrementCount = () => {
@@ -19,6 +24,9 @@ export const Counter = () => {
       </button>
       <button className="border p-2" onClick={decrementCount}>
         -
+      </button>
+      <button className="border p-2" onClick={() => deleteCounter(id)}>
+        ✗
       </button>
     </div>
   )
