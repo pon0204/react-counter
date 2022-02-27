@@ -1,5 +1,11 @@
 import { useState } from 'react'
+import { atom } from 'recoil'
 import { Counter } from './components/Counter'
+
+export const hogeState = atom<number>({
+  key: 'sample/hoge',
+  default: 100,
+})
 
 function App() {
   const [counters, setCounters] = useState([
@@ -39,6 +45,18 @@ function App() {
             <button className="mt-10 bg-green-400 p-2" onClick={addCounter}>
               new Counter
             </button>
+            <p>
+              title list:{' '}
+              {counters.map((counter) => (
+                <span>{counter.title},</span>
+              ))}
+            </p>
+            <p>
+              sum of count:{' '}
+              {counters.map((counter) => (
+                <p>hoge</p>
+              ))}
+            </p>
           </div>
         </div>
       </div>
