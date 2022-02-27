@@ -6,13 +6,14 @@ function App() {
     {
       id: 1,
       title: 'new',
+      count: 0,
     },
   ])
 
   const [counterId, setCountId] = useState(2)
 
   const addCounter = () => {
-    setCounters([...counters, { id: counterId, title: 'new' }])
+    setCounters([...counters, { id: counterId, title: 'new', count: 0 }])
     setCountId(counterId + 1)
   }
 
@@ -31,7 +32,7 @@ function App() {
             {counters.map((counter) => (
               <Counter
                 key={counter.id}
-                id={counter.id}
+                counter={counter}
                 deleteCounter={deleteCounter}
               />
             ))}
