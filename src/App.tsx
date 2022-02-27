@@ -1,18 +1,25 @@
 import { useState } from 'react'
+import { atom } from 'recoil'
 import { Counter } from './components/Counter'
+
+export const hogeState = atom<number>({
+  key: 'sample/hoge',
+  default: 100,
+})
 
 function App() {
   const [counters, setCounters] = useState([
     {
       id: 1,
       title: 'new',
+      count: 0,
     },
   ])
 
   const [counterId, setCountId] = useState(2)
 
   const addCounter = () => {
-    setCounters([...counters, { id: counterId, title: 'new' }])
+    setCounters([...counters, { id: counterId, title: 'new', count: 0 }])
     setCountId(counterId + 1)
   }
 
@@ -31,13 +38,25 @@ function App() {
             {counters.map((counter) => (
               <Counter
                 key={counter.id}
-                id={counter.id}
+                counter={counter}
                 deleteCounter={deleteCounter}
               />
             ))}
             <button className="mt-10 bg-green-400 p-2" onClick={addCounter}>
               new Counter
             </button>
+            <p>
+              title list:{' '}
+              {counters.map((counter) => (
+                <span>{counter.title},</span>
+              ))}
+            </p>
+            <p>
+              sum of count:{' '}
+              {counters.map((counter) => (
+                <p>hoge</p>
+              ))}
+            </p>
           </div>
         </div>
       </div>
